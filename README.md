@@ -46,7 +46,7 @@ Below are all three visuals included in the repository:
 
 ### Chat Interface Screen
 
-![Chat Interface Screen](images/Database-Chat -Interface.png)
+![Chat Interface Screen](images/Database-Chat-Interface.png)
 
 ---
 

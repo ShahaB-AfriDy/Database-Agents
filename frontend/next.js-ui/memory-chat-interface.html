@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>arXiv Researcher Agent - Memory Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A4AFF",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#111121",
+                        "sidebar-light": "#F5F5F5",
+                        "sidebar-dark": "#1A1A2E",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "ai-message-light": "#F0F0FF",
+                        "ai-message-dark": "#2A2A5A",
+                        "user-message-light": "#E0E0FF",
+                        "user-message-dark": "#4A4AFF",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 4px rgba(0,0,0,0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-80 bg-sidebar-light dark:bg-sidebar-dark flex flex-col p-4 shadow-soft">
+<div class="flex items-center gap-3 mb-6">
+<h1 class="text-lg font-bold text-text-light dark:text-text-dark">arXiv Researcher Agent</h1>
+</div>
+<div class="mb-6">
+<div class="flex items-center justify-between p-1 bg-gray-200 dark:bg-gray-700 rounded-lg">
+<button class="w-1/2 py-1 text-sm rounded-md bg-gray-300 dark:bg-gray-600 text-text-light dark:text-text-dark">Research Agent</button>
+<button class="w-1/2 py-1 text-sm font-medium rounded-md bg-white dark:bg-primary text-primary dark:text-white shadow-sm">Memory Assistant</button>
+</div>
+</div>
+<div class="flex flex-col gap-2 mb-6">
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-sm font-medium">New Research</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">search</span>
+<span class="text-sm font-medium">Memory Search</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+<span class="text-sm font-medium">Clear History</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto">
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2 px-3">History</h2>
+<div class="flex flex-col gap-2">
+<div class="p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Research Topic: Quantum Entanglement</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">20/10/2025 14:30</p>
+</div>
+<div class="p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Research Topic: Black Hole Thermodynamics</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">10/25/2025 11:15</p>
+</div>
+<div class="p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Research Topic: String Theory</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">10/24/2025 09:00</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col bg-background-light dark:bg-background-dark">
+<div class="flex-1 p-6 overflow-y-auto">
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-3 max-w-2xl">
+<div class="w-10 h-10 flex-shrink-0 rounded-full bg-primary flex items-center justify-center text-xl text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="flex-1">
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-1">AI Assistant</p>
+<div class="p-4 rounded-lg bg-ai-message-light dark:bg-ai-message-dark text-text-light dark:text-text-dark shadow-soft">
+<p>Welcome to Memory Assistant mode. Ask me about your past research.</p>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-3 justify-end">
+<div class="flex-1 flex flex-col items-end">
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-1 text-right">You</p>
+<div class="p-4 rounded-lg bg-user-message-light text-text-light dark:text-text-dark max-w-md shadow-soft">
+<p>What were the key findings from my research on quantum computing?</p>
+</div>
+</div>
+<div class="w-10 h-10 flex-shrink-0 rounded-full bg-center bg-no-repeat bg-cover" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3oui4ZM9nkeGZid94ADGKxi4_XC9ejUPsfAYmrvrGING1N8jHwaBF-_TLbTfkKvma4UOA2--S-amfaWcXBZNR9y_Xcs0aFM37PFqb_SKWXrmLa2cicE3NArwxaGio85zPnQqk3ngauqaj7LgX7ribO6R1L0xm3f1dKOmeoRq4-cd1bBgbtGpEs5HME08SZozyTSiL0Y6bHASx63Xwwo8JV31o6IaUbax-P7xZAVLegslaGHjNzDXAqaVUOw1K1AVrmEZN3FjoyYcW")'></div>
+</div>
+<div class="flex items-start gap-3 max-w-2xl">
+<div class="w-10 h-10 flex-shrink-0 rounded-full bg-primary flex items-center justify-center text-xl text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="flex-1">
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-1">AI Assistant</p>
+<div class="p-4 rounded-lg bg-ai-message-light dark:bg-ai-message-dark text-text-light dark:text-text-dark shadow-soft prose prose-sm dark:prose-invert max-w-none">
+<h3 class="font-semibold">Summary of Findings</h3>
+<ul class="list-disc pl-5 space-y-1">
+<li>Quantum computers can solve certain problems exponentially faster than classical computers.</li>
+<li>Shor's algorithm for factoring large numbers is a key example of quantum advantage.</li>
+<li>Decoherence remains a major challenge in building stable quantum computers.</li>
+</ul>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-2">[1] Nielsen, M. A., &amp; Chuang, I. L. (2010). <em>Quantum Computation and Quantum Information</em>. Cambridge University Press.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 flex-shrink-0 rounded-full bg-center bg-no-repeat bg-cover" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2r6XhdcopCWQEDDqAalJsuL27RVltfq3yP8xDvxtLS6cF5ZrIB3aHV2y1KkbbL8kYu3whckZpyRC3DMSpcOIjHp9ndfDcIyHdkbfkGUah_ow-iS9jgZvxUO10UB-n46JeLvHTwY5trQGazSSHg2g4_AytFJk2YVyax-x3eKS5iQ_UngW9RxoY4I-ZA3OoDpVVRqhMDX7t2_Yq8X0_ro5dgBUvRkhVSHW2JRP0PRrjhqq1qMEUUVntqCSldoCx4Mp6AcfkN8u5oPbz")'></div>
+<div class="flex-1 relative">
+<input class="w-full h-12 px-4 pr-12 rounded-lg bg-gray-100 dark:bg-gray-800 border-transparent focus:ring-primary focus:border-primary text-text-light dark:text-text-dark placeholder-gray-500" placeholder="Ask about your past research..." type="text"/>
+<button class="absolute inset-y-0 right-0 flex items-center justify-center w-12 text-primary hover:bg-primary/10 rounded-r-lg">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

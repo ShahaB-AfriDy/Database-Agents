@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>arXiv Researcher Agent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4d19e6",
+                        "background-light": "#ffffff",
+                        "background-dark": "#151121",
+                        "foreground-light": "#f6f6f8",
+                        "foreground-dark": "#201a30",
+                        "text-light": "#110e1b",
+                        "text-dark": "#f9f8fc",
+                        "subtle-text-light": "#604e97",
+                        "subtle-text-dark": "#a094c7",
+                        "user-message-light": "#e0e7ff",
+                        "user-message-dark": "#312e75",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<div class="w-80 bg-foreground-light dark:bg-foreground-dark flex flex-col p-4 border-r border-gray-200 dark:border-gray-800">
+<div class="flex flex-col mb-6">
+<h1 class="text-xl font-bold leading-normal">arXiv Researcher Agent</h1>
+<p class="text-subtle-text-light dark:text-subtle-text-dark text-sm font-normal leading-normal">Research Chat</p>
+</div>
+<div class="flex flex-col gap-2 mb-8">
+<button class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span>New Research</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors font-medium">
+<span class="material-symbols-outlined">search</span>
+<span>Memory Search</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors font-medium text-subtle-text-light dark:text-subtle-text-dark">
+<span class="material-symbols-outlined">delete</span>
+<span>Clear History</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto">
+<h2 class="text-sm font-semibold text-subtle-text-light dark:text-subtle-text-dark mb-4 px-2">History</h2>
+<div class="flex flex-col gap-1">
+<div class="p-3 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer">
+<p class="font-medium text-sm truncate">Quantum Computing Advancements</p>
+<p class="text-xs text-subtle-text-light dark:text-subtle-text-dark">2 hours ago</p>
+</div>
+<div class="p-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<p class="font-medium text-sm truncate">Machine Learning in Drug Discovery</p>
+<p class="text-xs text-subtle-text-light dark:text-subtle-text-dark">Yesterday</p>
+</div>
+<div class="p-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<p class="font-medium text-sm truncate">Black Hole Thermodynamics</p>
+<p class="text-xs text-subtle-text-light dark:text-subtle-text-dark">3 days ago</p>
+</div>
+<div class="p-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer">
+<p class="font-medium text-sm truncate">CRISPR Gene Editing Ethics</p>
+<p class="text-xs text-subtle-text-light dark:text-subtle-text-dark">1 week ago</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex-1 p-6 overflow-y-auto">
+<div class="max-w-4xl mx-auto flex flex-col gap-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-500 dark:bg-blue-500 flex-shrink-0 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 items-start">
+<p class="text-subtle-text-light dark:text-subtle-text-dark text-sm font-medium">AI Assistant</p>
+<div class="text-base font-normal leading-relaxed p-4 rounded-lg rounded-tl-none bg-gradient-to-r from-blue-50/70 to-purple-50/70 dark:from-blue-900/20 dark:to-purple-900/20 shadow-sm max-w-full">
+<h3 class="font-semibold text-lg mb-2">Summary of Recent Advancements in Quantum Computing</h3>
+<p class="mb-4">Here is a summary of the key findings from the latest research papers on quantum computing:</p>
+<ul class="list-disc list-inside space-y-2 mb-4">
+<li><strong>Improved Qubit Stability:</strong> Researchers at MIT have developed a new method to significantly extend qubit coherence times, a major step towards fault-tolerant quantum computers.</li>
+<li><strong>Novel Quantum Algorithms:</strong> A team from Google AI Quantum has published a new algorithm that demonstrates a quantum advantage for a specific computational problem, surpassing the capabilities of classical supercomputers.</li>
+<li><strong>Hardware Scalability:</strong> IBM announced a new 1,000-qubit processor, showcasing progress in scaling up quantum hardware, although challenges in error correction remain.</li>
+</ul>
+<p class="font-semibold mb-2">Citations:</p>
+<ol class="list-decimal list-inside text-sm text-subtle-text-light dark:text-subtle-text-dark space-y-1">
+<li>[1] Chen, et al. "Coherence Enhancement in Superconducting Qubits." Nature Physics, 2023.</li>
+<li>[2] Arute, F., et al. "Quantum supremacy using a programmable superconducting processor." Nature, 2019.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-4 justify-end">
+<div class="flex flex-1 flex-col gap-1 items-end max-w-2xl">
+<p class="text-subtle-text-light dark:text-subtle-text-dark text-sm font-medium">You</p>
+<p class="text-base font-normal leading-normal flex rounded-lg px-4 py-3 bg-user-message-light dark:bg-user-message-dark text-text-light dark:text-text-dark rounded-br-none shadow-sm">
+                            Can you elaborate on the improved qubit stability from the MIT paper?
+                        </p>
+</div>
+<div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex-shrink-0 flex items-center justify-center text-indigo-500 dark:text-indigo-300 shadow-sm overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMYwJJnru8pQdDWiLKAgYKGtIDdvBnYXRIju98OcMTbyIQrx-9Ovc4-K1J71owQjWunU478AZIFVOjyRG3wjuLGxN8qYpYJgBXRu2zeeNVXt9hEHeNbMw6AMZQffBCX7r34FT7SScrm9FH8QhlBCe6zZMiYMh3QvyA6t-77YReH5DFW-H0xcHhLV7TfX-F37ItQVGszgV3U7pCjxqS_uCoAgm1LKExMiESDW5M6biZPnPRWgVY-aIdsRoPeowTytpffW4fsY8ZDa87"/>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center gap-4 @container">
+<div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex-shrink-0 flex items-center justify-center text-indigo-500 dark:text-indigo-300 shadow-sm overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf-F_vU9tCX02aIuBMaJOtVEHoAd95wdpS8uxOwzBCmbVTVoSY9en5D559dppDWGkuGKNlkInoddjn1PDH1-QW9-_TiDLT8l5k6pCzKjNIrXr0xuf3O0WE5mu29Aox66YiQXu2HD6KsysKv5awisn-dTbxhtt8F9onpz-gTgJb0VWFOBn2xB35QxOQBSPFTvz5byg7qoF2yq6-ywrNzDVJlKbzmzKqinCmdmhql_OrJmuzm70uBjOFz-BqnzQj-0c-Mj1zHrY3jc2r"/>
+</div>
+<label class="flex flex-col min-w-40 h-12 flex-1">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-foreground-light dark:bg-foreground-dark h-full placeholder:text-subtle-text-light dark:placeholder:text-subtle-text-dark px-4 rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Ask a follow-up question or start a new research query..." value=""/>
+<div class="flex border-none bg-foreground-light dark:bg-foreground-dark items-center justify-center pr-2 rounded-r-lg">
+<div class="flex items-center gap-1">
+<button class="flex items-center justify-center p-2 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined text-subtle-text-light dark:text-subtle-text-dark text-xl">attach_file</span>
+</button>
+<button class="flex items-center justify-center p-2 rounded-md bg-primary hover:bg-primary/90 text-white">
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

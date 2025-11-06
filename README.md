@@ -34,7 +34,7 @@ Database-Agents/
 
 ## UI Preview
 
-Below are some visuals from the application:
+Below are all three visuals included in the repository:
 
 ### Database Upload Screen
 
@@ -44,9 +44,9 @@ Below are some visuals from the application:
 
 ![Table List Screen](images/Table-List-Screen.png)
 
-### Chat Interface
+### Chat Interface Screen
 
-![Chat Interface](images/Database-Chat -Interface.png)
+![Chat Interface Screen](images/Database-Chat -Interface.png)
 
 ---
 
